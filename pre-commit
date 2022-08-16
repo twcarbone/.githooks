@@ -1,0 +1,22 @@
+failmsg="ERROR: Aborting commit."
+
+# Black
+black --check --quiet .
+if [ $? -ne 0 ]; then
+    echo "ERROR: Black pre-commit hook failed."
+    echo $failmsg
+    exit 1
+else
+    echo "INFO: Running black... OK"
+fi
+
+# isort
+isort --check-only --quiet .
+
+if [ $? -ne 0 ]; then
+    echo "ERROR: isort pre-commit hook failed."
+    echo $failmsg
+    exit 1
+else
+    echo "INFO: Running isort... OK"
+fi
