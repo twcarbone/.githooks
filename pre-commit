@@ -24,7 +24,7 @@ else
 fi
 
 branch=$(git symbolic-ref --short HEAD)
-if ["$branch" == master]; then
+if [ "$branch" == master ]; then
     echo "INFO: On branch 'master'. Do something..."
 else
     echo "INFO: Not on branch 'master'. Don't do something..."
