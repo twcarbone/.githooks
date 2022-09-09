@@ -22,3 +22,10 @@ if [ $? -ne 0 ]; then
 else
     echo "INFO: Running isort... OK"
 fi
+
+branch=$(git symbolic-ref --short HEAD)
+if ["$branch" == master]; then
+    echo "INFO: On branch 'master'. Do something..."
+else
+    echo "INFO: Not on branch 'master'. Don't do something..."
+fi
